@@ -31,19 +31,33 @@ body {
   display: grid;
 }
 
-.calculator__input {
+.calculator__display {
   position: relative;
+  left: 10px;
   grid-column: span 4;
+  display: flex;
+  flex-direction: column;
   height: 100px;
-  width: 100%;
-  border: none;
-  outline: none;
+  width: calc(100% - 20px);
   background-color: #A7AF7C;
   margin-bottom: 10px;
   border-radius: 10px;
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.75);
-  text-align: right;
   padding: 10px;
+  text-align: right;
+}
+
+.calculator__display .calculator__formula {
+  flex-basis: 30%;
+  font-size: 1.25em;
+}
+
+.calculator__display .calculator__input {
+  border: none;
+  outline: none;
+  background-color: #A7AF7C;
+  flex-basis: 70%;
+  text-align: right;
   font-size: 2em;
 }
 
@@ -99,12 +113,28 @@ body {
 
 .calculator__clear {
   grid-column: span 2;
-  width: 175px;
+  width: 180px;
   background: #F00;
 }
 
 .calculator__clear::before {
   background: linear-gradient(90deg, #D20000, #FFFFFF5C);
+  border-left: 1px solid #FFF4;
+  border-bottom: 1px solid #FFF4;
+  border-top: 1px solid #FFF4;
+}
+
+.calculator__operator[data-value="+"] {
+  grid-row: span 2;
+  height: 180px;
+}
+
+.calculator__result[data-value="="] {
+  background: #2196F3;
+}
+
+.calculator__result[data-value="="]::before {
+  background: linear-gradient(90deg, #1479C9, #FFFFFF5C);
   border-left: 1px solid #FFF4;
   border-bottom: 1px solid #FFF4;
   border-top: 1px solid #FFF4;
