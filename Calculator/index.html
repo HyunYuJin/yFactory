@@ -79,7 +79,7 @@
     }
 
     const inputOperator = (operator) => {
-      const reg = /[\+\-\/\*\.]$/
+      const reg = /[\+\-\/\*]$/
 
       if (reg.test(display)) {
         display = display.replace(/.$/, operator)
@@ -105,8 +105,9 @@
     }
 
     const resultFormula = () => {
-      const reg = /([\+\-\/\*\.])/
+      const reg = /([\+\-\/\*])/
       formula = [...display.split(reg)]
+      console.log(formula)
 
       while (formula.length > 1) {
         const monomial = formula.splice(0, 3)
