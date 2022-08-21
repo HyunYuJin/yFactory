@@ -51,7 +51,7 @@
       const button = target.closest('.calculator__btn')
       const number = target.closest('.calculator__number')
       const operator = target.closest('.calculator__operator')
-   
+  
       if (!button) return
       if (!nodes.calculator.contains(button)) return
 
@@ -105,7 +105,6 @@
     }
 
     const resultFormula = () => {
-      const { input } = nodes
       const reg = /([\+\-\/\*\.])/
       formula = [...display.split(reg)]
 
