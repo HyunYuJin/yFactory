@@ -26,12 +26,12 @@ body {
   inset 5px 5px 15px rgba(0, 0, 0, 0.5);
 }
 
-.calculator__form {
+.calculator__wrap {
   position: relative;
   display: grid;
 }
 
-.calculator__formula {
+.calculator__input {
   position: relative;
   grid-column: span 4;
   height: 100px;

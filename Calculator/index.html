@@ -8,8 +8,8 @@
 </head>
 <body>
   <div class="calculator">
-    <form class="calculator__form" name="formula">
-      <input type="text" class="calculator__formula" readonly name="formula" value="0" />
+    <div class="calculator__wrap">
+      <input type="text" class="calculator__input" value="0" readonly />
       <span class="calculator__btn calculator__clear" onclick="clearFormula()"><i>C</i></span>
       <span class="calculator__btn calculator__operator" data-value="/"><i>/</i></span>
       <span class="calculator__btn calculator__operator" data-value="*"><i>*</i></span>
@@ -29,20 +29,21 @@
       <span class="calculator__btn calculator__number" data-value="."><i>.</i></span>
 
       <span class="calculator__btn calculator__result" onclick="resultFormula()"><i>=</i></span>
-    </form>
+    </div>
   </div>
 
   <script>
     'use strict'
 
     const nodes = {
-      calculator: document.querySelector('.calculator__form'),
-      formula: document.querySelector('.calculator__formula'),
+      calculator: document.querySelector('.calculator__wrap'),
+      input: document.querySelector('.calculator__input'),
       result: document.querySelector('.calculator__result')
     }
 
-    const nums = []
-    let value = ''
+    let digits = [] // 입력되고 있는 숫자를 관리
+    let display = '' // 실제로 사용자에게 display 해줄 문자열들을 저장
+    let formula = [] // 계산해줄 총 공식들을 저장
 
     document.addEventListener('click', (event) => {
       const { target } = event
@@ -62,98 +63,81 @@
         inputOperator(value)
       }
     })
-
-    // 자리수
-    const digits = () => {
-
-      value += number
-
-      return value
-    }
     
-    // join으로도 할 수 있지 않을까??
-    // push만해주는거지...
     const inputNum = (number) => {
-      const { formula } = nodes
+      const { input } = nodes
 
-      if (formula.value.charAt(0) === '0') {
-        formula.value = ''
+      if (input.value.charAt(0) === '0') {
+        display = ''
+        input.value.replace(/^./, number)
       }
-      
-      value += number
-      formula.value += number
+
+      digits.push(number)
+      display += number
+
+      displayFormula()
     }
 
     const inputOperator = (operator) => {
-      const { formula } = nodes
-      
-      const last = formula.value.slice(-1)
       const reg = /[\+\-\/\*\.]$/
 
-      nums.push(value)
-      nums.push(operator)
-
-      console.log(nums)
-
-      value = ''
-
-      if (reg.test(formula.value)) {
-        formula.value = formula.value.replace(/.$/, operator)
+      if (reg.test(display)) {
+        display = display.replace(/.$/, operator)
       } else {
-        formula.value += operator
+        display += operator
+        digits = []
       }
 
-      if (formula.value) {
-        console.log(formula.value, nums)
-        console.log(value)
-      }
+      displayFormula()
     }
 
-    // 실제 사용자한테 보여지는 부분만 관리함
-    const displayFormula = (value) => {
-      const { formula } = nodes
+    const displayFormula = () => {
+      const { input } = nodes
 
-      formula.value = value
+      input.value = display
     }
 
     const clearFormula = () => {
-      const { formula } = nodes
+      digits = []
+      display = '0'
 
-      value = ''
-      formula.value = '0'
+      displayFormula()
     }
 
     const resultFormula = () => {
-      if (value) {
-        nums.push(value)
-      }
-      
-      while (nums.length > 1) {
-        const formula = nums.splice(0, 3)
-        const left = Number(formula[0])
-        const right = Number(formula[2])
-        const operator = formula[1]
+      const { input } = nodes
+      const reg = /([\+\-\/\*\.])/
+      formula = [...display.split(reg)]
+
+      while (formula.length > 1) {
+        const monomial = formula.splice(0, 3)
+        const constant1 = Number(monomial[0])
+        const constant2 = Number(monomial[2])
+        const arithmetic = monomial[1]
         let result = 0
 
-        if (operator === '+') {
-          result = left + right
-        } else if (operator === '-') {
-          result = left - right
-        } else if (operator === '*') {
-          result = left * right
-        } else {
-          result = left / right
+        switch (arithmetic) {
+          case '+':
+            result = constant1 + constant2
+            break
+          case '-':
+            result = constant1 - constant2
+            break
+          case '*':
+            result = constant1 * constant2
+            break
+          case '/':
+            result = constant1 / constant2
         }
 
-        nums.unshift(result)
+        formula.unshift(String(result))
       }
-
-      const { formula } = nodes
-      formula.value = [...nums]
-
-      value = ''
-
-      console.log(nums)
+      
+      display = String(formula)
+      displayFormula()
+      
+      digits = []
+      formula = []
     }
   </script>
 </body>
