@@ -7,6 +7,10 @@
   <title>Calculator | Dark and Light Mode</title>
 </head>
 <body>
+  <button type="button" class="mode-btn" onclick="toggleMode()">
+    <span>🌞</span>
+    <span>🌙</span>
+  </button>
   <div class="calculator">
     <div class="calculator__wrap">
       <div class="calculator__display">
@@ -39,6 +43,8 @@
     'use strict'
 
     const nodes = {
+      body: document.querySelector('body'),
+      btn: document.querySelector('.mode-btn'),
       calculator: document.querySelector('.calculator__wrap'),
       formula: document.querySelector('.calculator__formula'),
       input: document.querySelector('.calculator__input'),
@@ -67,6 +73,10 @@
         inputOperator(value)
       }
     })
+
+    const toggleMode = () => {
+      nodes.body.classList.toggle('light')
+    }
     
     const inputNum = (number) => {
       const { input } = nodes

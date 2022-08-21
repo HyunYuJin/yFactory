@@ -111,14 +111,16 @@ body {
   text-transform: uppercase;
 }
 
+body.light .calculator__clear,
 .calculator__clear {
   grid-column: span 2;
   width: 180px;
-  background: #F00;
+  background: #F00 !important;
 }
 
+body.light .calculator__clear::before,
 .calculator__clear::before {
-  background: linear-gradient(90deg, #D20000, #FFFFFF5C);
+  background: linear-gradient(90deg, #D20000, #FFFFFF5C) !important;
   border-left: 1px solid #FFF4;
   border-bottom: 1px solid #FFF4;
   border-top: 1px solid #FFF4;
@@ -129,13 +131,104 @@ body {
   height: 180px;
 }
 
+body.light .calculator__result[data-value="="],
 .calculator__result[data-value="="] {
-  background: #2196F3;
+  background: #2196F3 !important;
 }
 
 .calculator__result[data-value="="]::before {
-  background: linear-gradient(90deg, #1479C9, #FFFFFF5C);
+  background: linear-gradient(90deg, #1479C9, #FFFFFF5C) !important;
   border-left: 1px solid #FFF4;
   border-bottom: 1px solid #FFF4;
   border-top: 1px solid #FFF4;
 }
+
+.mode-btn {
+  outline: none;
+  border: none;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: #333333;
+  font-size: 1.5em;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.25),
+  5px 5px 30px rgba(0, 0, 0, 0.25),
+  inset -2px -2px 5px rgba(0, 0, 0, 0.25),
+  inset 2px 2px 5px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.mode-btn span {
+  display: none;
+}
+
+.mode-btn span:nth-child(1) {
+  display: block;
+}
+
+/* light */
+body.light .mode-btn span:nth-child(1) {
+  display: none;
+}
+
+body.light .mode-btn span:nth-child(2) {
+  display: block;
+}
+
+body.light {
+  background-color: #F4F4F4;
+}
+
+body.light .mode-btn {
+  background-color: #F4F4F4;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1),
+  5px 5px 30px rgba(0, 0, 0, 0.05),
+  inset -2px -2px 5px rgba(0, 0, 0, 0.1),
+  inset 2px 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+body.light .calculator {
+  background-color: #FAFAFA;
+  box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.15),
+  10px 10px 70px rgba(0, 0, 0, 0.15),
+  inset -5px -5px 15px rgba(0, 0, 0, 0.15),
+  inset 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+body.light .calculator__btn {
+  background: linear-gradient(180deg, #FAFAFA, #F4F4F4);
+  box-shadow: inset -8px 0 8px rgba(0, 0, 0, 0.15),
+  inset 0 -8px 8px rgba(0, 0, 0, 0.15),
+  0 0 0 2px rgba(0, 0, 0, 0.1),
+  10px 20px 25px rgba(0, 0, 0, 0.25);
+} 
+
+body.light .calculator__btn::before {
+  background: linear-gradient(90deg, #E6E6E6, #EFEFEF);
+  border-radius: 10px;
+  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.25),
+  10px 5px 10px rgba(0, 0, 0, 0.15);
+  border-left: 1px solid #FFF4;
+  border-bottom: 1px solid #FFF4;
+  border-top: 1px solid #FFF9;
+}
+
+body.light .calculator__btn:active::before {
+  filter: brightness(0.9); 
+}
+
+body.light .calculator__btn i {
+  color: #333333;
+}
+
+body.light .calculator__clear i,
+body.light .calculator__result[data-value="="] i {
+  color: #FFFFFF;
+}
+
