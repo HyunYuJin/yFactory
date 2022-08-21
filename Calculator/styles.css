@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: consolas;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #333;
+}
+
+.calculator {
+  position: relative;
+  min-width: 300px;
+  min-height: 400px;
+  background-color: #333;
+  padding: 40px 30px 30px;
+  border-radius: 20px;
+  box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.25),
+  10px 10px 70px rgba(0, 0, 0, 0.25),
+  inset -5px -5px 15px rgba(0, 0, 0, 0.5),
+  inset 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.calculator__form {
+  position: relative;
+  display: grid;
+}
+
+.calculator__formula {
+  position: relative;
+  grid-column: span 4;
+  height: 100px;
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: #A7AF7C;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.75);
+  text-align: right;
+  padding: 10px;
+  font-size: 2em;
+}
+
+.calculator__btn {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 80px;
+  height: 80px;
+  margin: 8px;
+  background: linear-gradient(180deg, #2F2F2F, #3F3F3F);
+  box-shadow: inset -8px 0 8px rgba(0, 0, 0, 0.15),
+  inset 0 -8px 8px rgba(0, 0, 0, 0.25),
+  0 0 0 2px rgba(0, 0, 0, 0.75),
+  10px 20px 25px rgba(0, 0, 0, 0.4);
+  color: #FFF;
+  user-select: none;
+  cursor: pointer;
+  font-weight: 400;
+  border-radius: 10px;
+}
+
+.calculator__btn::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  bottom: 14px;
+  right: 12px;
+  background: linear-gradient(90deg, #2D2D2D, #4D4D4D);
+  border-radius: 10px;
+  box-shadow: -5px -5px 15px rgba(0, 0, 0, 0.1),
+  10px 5px 10px rgba(0, 0, 0, 0.15);
+  border-left: 1px solid #0004;
+  border-bottom: 1px solid #0004;
+  border-top: 1px solid #0009;
+}
+
+.calculator__btn:active::before {
+  top: 3px;
+  left: 4px;
+  bottom: 10px;
+  right: 8px;
+  filter: brightness(1.2);
+}
+
+.calculator__btn i {
+  position: relative;
+  font-style: normal;
+  font-size: 1.5em;
+  text-transform: uppercase;
+}
+
+.calculator__clear {
+  grid-column: span 2;
+  width: 175px;
+  background: #F00;
+}
+
+.calculator__clear::before {
+  background: linear-gradient(90deg, #D20000, #FFFFFF5C);
+  border-left: 1px solid #FFF4;
+  border-bottom: 1px solid #FFF4;
+  border-top: 1px solid #FFF4;
+}
