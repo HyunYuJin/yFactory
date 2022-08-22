@@ -14,8 +14,8 @@
   <div class="calculator">
     <div class="calculator__wrap">
       <div class="calculator__display">
-        <p class="calculator__formula"></p>
         <input type="text" class="calculator__input" value="0" readonly />
+        <span class="calculator__formula"></span>
       </div>
       <span class="calculator__btn calculator__clear" onclick="clearFormula()"><i>C</i></span>
       <span class="calculator__btn calculator__operator" data-value="/"><i>/</i></span>
@@ -46,6 +46,7 @@
       body: document.querySelector('body'),
       btn: document.querySelector('.mode-btn'),
       calculator: document.querySelector('.calculator__wrap'),
+      display: document.querySelector('.calculator__display'),
       formula: document.querySelector('.calculator__formula'),
       input: document.querySelector('.calculator__input'),
       result: document.querySelector('.calculator__result')
@@ -119,6 +120,7 @@
       digits = []
       display = '0'
       prevFormula('')
+      nodes.display.classList.remove('show')
 
       displayFormula()
     }
@@ -127,6 +129,7 @@
       const reg = /([\+\-\/\*])/
       formula = [...display.split(reg)]
       prevFormula(formula.join(''))
+      nodes.display.classList.add('show')
 
       while (formula.length > 1) {
         const monomial = formula.splice(0, 3)

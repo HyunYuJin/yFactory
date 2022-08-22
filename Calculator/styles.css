@@ -35,8 +35,6 @@ body {
   position: relative;
   left: 10px;
   grid-column: span 4;
-  display: flex;
-  flex-direction: column;
   height: 100px;
   width: calc(100% - 20px);
   background-color: #A7AF7C;
@@ -48,17 +46,29 @@ body {
 }
 
 .calculator__display .calculator__formula {
-  flex-basis: 30%;
+  position: absolute;
+  bottom: -5px;
+  right: 10px;
   font-size: 1.25em;
+  transition: all 0.5s;
+}
+
+.calculator__display.show .calculator__formula {
+  transform: translateY(-22px);
 }
 
 .calculator__display .calculator__input {
   border: none;
   outline: none;
   background-color: #A7AF7C;
-  flex-basis: 70%;
   text-align: right;
   font-size: 2em;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
+}
+.calculator__display.show .calculator__input {
+  transform: translateY(-7px);
 }
 
 .calculator__btn {
