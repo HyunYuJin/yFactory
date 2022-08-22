@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #222237;
+}
+
+.radial-menu__list {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radial-menu__toggle {
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.radial-menu__toggle svg {
+  width: 2em;
+  fill: #222222;
+}
+
+.radial-menu__toggle.active {
+  transform: rotate(315deg);
+  box-shadow: 0 0 0 68px #FFF;
+  background-color: #222237;
+  color: #FFF;
+}
+
+.radial-menu__list .radial-menu__item {
+  list-style: none;
+  position: absolute;
+  left: 10px;
+  transform: rotate(calc(360deg / 8 * var(--i))) translateX(40px);
+  transform-origin: 140px;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+  z-index: 10;
+}
+.radial-menu__list.active .radial-menu__item {
+  visibility: visible;
+  opacity: 1;
+}
+
+.radial-menu__list .radial-menu__item a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  font-size: 1.75em;
+  color: #222327;
+  transform: rotate(calc(360deg / -8 * var(--i)));
+}
+
+.radial-menu__list .radial-menu__item.active {
+  transform: rotate(calc(360deg / 8 * var(--i))) translateX(12px);
+}
+
+.radial-menu__indicator {
+  position: absolute;
+  left: calc(50% + 2.5px);
+  width: 100px;
+  height: 1px;
+  background-color: transparent;
+  pointer-events: none;
+  transition: 0.5s;
+  transform-origin: right;
+}
+
+.radial-menu__indicator::before {
+  content: '';
+  position: absolute;
+  top: -27.5px;
+  left: 72px;
+  width: 55px;
+  height: 55px;
+  background-color: #222237;
+  box-shadow: 0 0 0 6px #29FD53;
+  border-radius: 50%;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.radial-menu__list.active .radial-menu__indicator::before {
+  opacity: 1;
+  top: -27.5px;
+  left: -27.5px;
+  background-color: #29FD53;
+  box-shadow: 0 0 0 6px #222237;
+}
+
+.radial-menu__list .radial-menu__item:nth-child(2).active ~ .radial-menu__indicator {
+  transform: translateX(-103px) rotate(0deg);
+}
+
+.radial-menu__list .radial-menu__item:nth-child(3).active ~ .radial-menu__indicator {
+  transform: translateX(-103px) rotate(45deg);
+}
+
+.radial-menu__list .radial-menu__item:nth-child(4).active ~ .radial-menu__indicator {
+  transform: translateX(-103px) rotate(90deg);
+}
+
+.radial-menu__list .radial-menu__item:nth-child(5).active ~ .radial-menu__indicator {
+  transform: translateX(-103px) rotate(135deg);
+}
+
+.radial-menu__list .radial-menu__item:nth-child(6).active ~ .radial-menu__indicator {
+  transform: translateX(-103px) rotate(180deg);
+}
+
+.radial-menu__list .radial-menu__item:nth-child(7).active ~ .radial-menu__indicator {
+  transform: translateX(-103px) rotate(225deg);
+}
+
+.radial-menu__list .radial-menu__item:nth-child(8).active ~ .radial-menu__indicator {
+  transform: translateX(-103px) rotate(270deg);
+}
+
+.radial-menu__list .radial-menu__item:nth-child(9).active ~ .radial-menu__indicator {
+  transform: translateX(-103px) rotate(315deg);
+}
