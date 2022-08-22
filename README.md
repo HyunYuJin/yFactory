@@ -1,7 +1,7 @@
 # yFactory
 
 ## Calculator
-Claymorphism 스타일의 계산기 입니다.  
+Claymorphism 스타일의 만든 계산기 입니다.  
 
 Calculator Dark Mode             |  Calculator Light Mode
 :-------------------------:|:-------------------------:
