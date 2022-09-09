@@ -6,11 +6,13 @@
     <title>Cursor Effects</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="dot"></div>
+    </div>
     <script type="module">
       import { Dot } from '/index.js'
 
-      console.log(Dot)
+      Dot(document.querySelector('.dot'))
     </script>
   </body>
 </html>
