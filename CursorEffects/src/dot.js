@@ -12,8 +12,11 @@ const Dot = (element = document.body) => {
   window.addEventListener('resize', onResize)
 }
 
-const onResize = (event) => {
-  sizes = { width: window.innerWidth, height: window.innerHeight }
+const onResize = () => {
+  sizes.width = window.innerWidth
+  sizes.height = window.innerHeight
+  canvas.width = sizes.width
+  canvas.height = sizes.height
 }
 
 const onMousemove = (event) => {
