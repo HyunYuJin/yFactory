@@ -1,44 +1,39 @@
-let width = window.innerWidth
-let height = window.innerHeight
-const cursor = { x: width / 2, y: height / 2 }
-const position = { x: width / 2, y: height / 2 }
+const sizes = { width: window.innerWidth, height: window.innerHeight }
+const cursor = { x: sizes.width / 2, y: sizes.height / 2 }
+const position = { x: sizes.width / 2, y: sizes.height / 2 }
 let canvas, context
 
-const Dot = (el) => {
-  const element = el || document.body
-  createCanvas(element)
-  cursorStyle()
- 
+const Dot = (element = document.body) => {
+  canvas = createCanvas()
+  context = canvas.getContext('2d')
+  element.appendChild(canvas)
+
   element.addEventListener('mousemove', onMousemove)
+  window.addEventListener('resize', onResize)
+}
+
+const onResize = (event) => {
+  sizes = { width: window.innerWidth, height: window.innerHeight }
 }
 
 const onMousemove = (event) => {
-  cursor.x = event.clientX
-  cursor.y = event.clientY
+  position.x = cursor.x = event.clientX
+  position.y = cursor.y = event.clientY
 
   updateCursor()
 }
 
-const updateCursor = () => {
-  context.clearRect(0, 0, canvas.width, canvas.height)
-  cursorMove(cursor.x, cursor.y)
+const createCanvas = () => {
+  const canvas = document.createElement('canvas')
+  canvas.style.position = 'absolute'
+  canvas.width = sizes.width
+  canvas.height = sizes.height
+
+  return canvas
 }
 
-const createCanvas = (element) => {
-  canvas = document.createElement('canvas')
-  context = canvas.getContext('2d')
-
-  if (element) {
-    canvas.style.position = 'absolute'
-    element.appendChild(canvas)
-    canvas.width = element.clientWidth
-    canvas.height = window.innerHeight
-  } else {
-    canvas.style.position = 'relative'
-    element.appendChild('body')
-    canvas.width = window.innerWidth
-    canvas.height = window.innerHeight
-  }
+const cursorClear = () => {
+  context.clearRect(0, 0, canvas.width, canvas.height)
 }
 
 const cursorStyle = () => {
@@ -49,10 +44,8 @@ const cursorStyle = () => {
   context.closePath()
 }
 
-const cursorMove = (x, y) => {
-  position.x = x
-  position.y = y
-
+const updateCursor = () => {
+  cursorClear()
   cursorStyle()
 }
 
