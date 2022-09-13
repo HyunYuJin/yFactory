@@ -12,6 +12,7 @@ class Swiper {
 
     this.currentIndex = 0
     this.translateX = 0
+    this.timer
 
     this._init()
   }
@@ -30,6 +31,12 @@ class Swiper {
 
   _init () {
     this._initEvents()
+
+    if (this.config.autoplay?.delay) {
+      this.timer = setInterval(() => {
+        this._navigate('next')
+      }, this.config.autoplay.delay)
+    }
   }
 
   _initEvents () {

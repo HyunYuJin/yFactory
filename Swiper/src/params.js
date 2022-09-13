@@ -3,7 +3,8 @@ const params = {
   effect: 'slide', // fade
   speed: 300,
   loop: false,
-  navigation: {}
+  navigation: {},
+  autoplay: {}
 }
 
 export { 
