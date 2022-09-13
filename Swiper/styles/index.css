@@ -1,0 +1,49 @@
+:root {
+  --swiper-navigation-size: 44px;
+  --swiper-theme-color: #77bbcc;
+}
+
+/* Reset */
+* {
+	padding: 0;
+  margin: 0;
+	box-sizing: border-box;
+}
+
+.swiper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.swiper__wrapper {
+  position: relative;
+  height: 100%;
+  z-index: 1;
+  display: inline-flex;
+  transition-property: transform;
+  box-sizing: content-box;
+}
+
+.swiper__item {
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  transition-property: transform;
+}
+
+.swiper__item img {
+  display: block;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper__button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
