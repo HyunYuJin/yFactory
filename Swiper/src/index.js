@@ -13,6 +13,7 @@ class Swiper {
     this.currentIndex = 0
     this.translateX = 0
     this.timer
+    this.isFirstSlide = true
 
     this._init()
   }
@@ -49,15 +50,41 @@ class Swiper {
       this.currentIndex = this.currentIndex > 0 ? --this.currentIndex : this.slideTotalIndex - 1
     } else if (direction === 'next') {
       this.currentIndex = this.currentIndex < this.slideTotalIndex - 1 ? ++this.currentIndex : 0
+      this.translateX += this.isFirstSlide ? 200 : 100
     }
 
-    this.translateX = this.slideWidth * this.currentIndex
     this._animate()
+    this._setInfiniteSwipe()
   }
 
   _animate () {
-    this.nodes.wrapper.style.transition = `0.5s`
-    this.nodes.wrapper.style.transform = `translateX(-${this.translateX}px)`
+    this.nodes.wrapper.style.transition = '0.5s'
+    this.nodes.wrapper.style.transform = `translateX(-${this.translateX}%)`
+  }
+
+  _setInfiniteSwipe () {
+    // 가장 처음 페이지는 가장 뒤의 슬라이드가 앞으로 붙기 때문에 첫 페이지에서 처음 이동할 때는 무조건 200을 더해주어야 한다.
+    // 이전 페이지, 다음 페이지 모두...
+    if (this.isFirstSlide) {
+      const slide = this.nodes.slides[this.nodes.slides.length - 1]
+      this.nodes.wrapper.prepend(slide)
+
+      this.isFirstSlide = false
+    }
+
+    const slides = this.nodes.slides
+    const a = slides.filter((slide, index) => index < this.slideTotalIndex - 1)
+    this.nodes.wrapper.append(...a)
+
+    const translateX = 100
+    this.nodes.wrapper.style.transition = ''
+    this.nodes.wrapper.style.transform = `translateX(-${translateX}%)`
+
+    this._updateSlides()  
+  }
+  
+  _updateSlides () {
+    this.nodes.slides = Array.from(this.nodes.wrapper.children)
   }
 
   _getWrapper () {
