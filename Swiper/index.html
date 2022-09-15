@@ -6,13 +6,23 @@
     <link rel="stylesheet" href="./styles/index.css">
     <title>Swiper</title>
     <style>
+      .controls {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
       .swiper__button.prev {
         background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='32px' height='32px' stroke-width='1.5' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' color='%23000000'%3E%3Cpath d='M15 6l-6 6 6 6' stroke='%23000000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3C/svg%3E");
         background-repeat: no-repeat;
         background-size: cover;
         width: var(--swiper-navigation-size);
         height: var(--swiper-navigation-size);
-        left: 0;
         cursor: pointer;
       }
       
@@ -22,7 +32,6 @@
         background-size: cover;
         width: var(--swiper-navigation-size);
         height: var(--swiper-navigation-size);
-        right: 0;
         cursor: pointer;
       }
     </style>
@@ -31,26 +40,25 @@
     <div class="swiper">
       <div class="swiper__wrapper">
         <div class="swiper__item">
-          <img src="https://images.unsplash.com/photo-1621792143337-7cb8554b4877?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2931&q=80" alt="">
+          Content section 1
         </div>
         <div class="swiper__item">
-          <img src="https://images.unsplash.com/photo-1618550454160-c69921c2f1a8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt="">
+          Content section 2
         </div>
         <div class="swiper__item">
-          <img src="https://images.unsplash.com/photo-1587244399104-f12b41169443?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt="">
+          Content section 3
         </div>
         <div class="swiper__item">
-          <img src="https://images.unsplash.com/photo-1561741403-3f7c1f93d0a3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1682&q=80" alt="">
+          Content section 4
         </div>
         <div class="swiper__item">
-          <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt="">
-        </div>
-        <div class="swiper__item">
-          <img src="https://images.unsplash.com/photo-1611338075094-a2926b902fc0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt="">
+          Content section 5
         </div>
       </div>
-      <div class="swiper__button prev"></div>
-      <div class="swiper__button next"></div>
+      <div class="controls">
+        <div class="swiper__button prev"></div>
+        <div class="swiper__button next"></div>
+      </div>
     </div>
 
     <script type="module">
