@@ -1,0 +1,122 @@
+@import 'reset.css';
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.blind {
+  display: block;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  font-size: 1px;
+  line-height: 0;
+  text-indent: -9999px;
+}
+
+.image__upload {
+  position: absolute;
+  top: 77px;
+  left: 149px;
+  opacity: 0;
+}
+
+.image__upload-input {
+  position: absolute;
+  top: auto;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.image__upload-input + label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 185px;
+  height: 54px;
+  border-radius: 10px;
+  background-color: #FDB99B;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  color: #FFF;
+  cursor: pointer;
+}
+
+.carousel {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel__content {
+  perspective: 1000px;
+}
+
+.carousel__list {
+  position: relative;
+  /* 
+    perspective 1000px에서 Z축으로 250px만큼 나왔다. 
+    250/1000 = 0.25이므로 0.25를 곱해준 값만큼 빼주어야 디자인에서 의도한 값이 적용될 것이다.
+  */
+  width: calc(464px - 464px * 0.25);
+  height: calc(464px - 464px * 0.25);
+  transform-style: preserve-3d;
+  /* transform: rotateX(-75deg); */
+}
+
+.carousel__item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s;
+}
+
+.carousel__item > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  filter: brightness(70%);
+}
+
+.carousel__item.current {
+  transform: rotateY(0deg) translateZ(250px);
+}
+
+.carousel__item.current > img {
+  filter: brightness(100%)
+}
+
+.btn {
+  position: absolute;
+  width: 100px;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  border: none;
+  background-color: transparent;
+  color: #CF8BF3;
+  font-size: 2em;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+.btn:hover {
+  color: #A770EF;
+}
+
+.btn.prev {
+  left: 0;
+}
+
+.btn.next {
+  right: 0;
+}

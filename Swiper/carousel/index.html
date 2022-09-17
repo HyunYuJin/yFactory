@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
+  <title>Carousel</title>
+</head>
+<body>
+  <div id="carousel" class="carousel">
+    <h1 class="blind">My Carousel</h1>
+
+    <div class="carousel__content">
+      <ul class="carousel__list">
+        <li class="carousel__item current">
+          <img src="https://i.pinimg.com/564x/c5/e2/a4/c5e2a4ecf2900cd758b7b3428d5b0d58.jpg" alt="">
+        </li>
+        <li class="carousel__item">
+          <img src="https://i.pinimg.com/564x/74/22/de/7422de04dcccc54c1267dea7779d77d9.jpg" alt="">
+        </li>
+        <li class="carousel__item">
+          <img src="https://i.pinimg.com/564x/2d/82/73/2d82734f864cdc39e02235be23c7df9a.jpg" alt="">
+        </li>
+        <li class="carousel__item">
+          <img src="https://i.pinimg.com/736x/d1/7c/92/d17c924a24101de3459c39bfc3ec5ec0.jpg" alt="">
+        </li>
+      </ul>
+    </div>
+    <button type="button" class="btn prev">&lt;</button>
+    <button type="button" class="btn next">&gt;</button>
+  </div>
+
+  <form class="image__upload">
+    <input type="file" accept="image/*" id="image__upload-input" class="image__upload-input">
+    <label for="image__upload-input">이미지 업로드</label>
+  </form>
+
+  <script type="module" src="src/javascript/index.js"></script>
+</body>
+</html>
