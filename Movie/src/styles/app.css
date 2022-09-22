@@ -1,0 +1,129 @@
+.movie {
+  font-family: 'Noto Sans KR', sans-serif;
+  display: flex;
+  align-items: center;
+  overflow: scroll;
+}
+
+img {
+  width: 100%;
+}
+
+.movie__container {
+  position: relative;
+  left: 64px;
+  display: flex;
+  align-items: center;
+  width: 672px;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.movie__poster {
+  position: absolute;
+  left: -64px;
+  width: 281px;
+  height: 396px;
+  background-color: #DDD;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.movie__content {
+  width: 608px;
+  height: 500px;
+  padding: 68px 0 0 266px;
+  background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+  border-radius: 15px;
+  color: #666b70;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.movie__content-type span {
+  color: #BDBDBD;
+}
+
+.movie__content-type span + span:before{
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 13px;
+  margin: 0 7px -1px 3px;
+  background-color: #BDBDBD;
+}
+
+.movie__content-title {
+  margin: 13px 0 114px 0;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 46px;
+}
+
+.movie__content-buttons {
+  display: flex;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.movie__content-buttons > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border: 2px solid #666b70;
+  border-radius: 100%;
+  margin-right: 20px;
+}
+
+.movie__content-buttons .recommand .icon-thumbs-up {
+  overflow: hidden;
+  text-indent: -999px;
+  width: 29px;
+  height: 29px;
+  background: center / contain url(../images/icon_thumbs_up.png) no-repeat;
+  
+}
+.movie__content-buttons .recommand.on {
+  background-image: url(../images/icon_thumbs_up_fill.png);
+  background-repeat: no-repeat;
+  background-color: #2F80ED;
+}
+
+.movie__content-buttons .like .icon-heart {
+  overflow: hidden;
+  text-indent: -999px;
+  width: 29px;
+  height: 29px;
+  background: center / contain url(../images/icon_heart.png) no-repeat;
+}
+
+.movie__content-buttons .like.on {
+  background-image: url(../images/icon_heart_fill.png);
+  background-color: #EB5757;
+}
+
+.movie__content-star .average {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.star {
+  display: flex;
+  align-items: center;
+}
+
+.star .star-container {
+  display: flex;
+}
+
+.star .star-container img {
+  width: 51px;
+}
+
+.star .star-remove {
+  width: 22px;
+  height: 22px;
+  margin-left: 11px;
+}

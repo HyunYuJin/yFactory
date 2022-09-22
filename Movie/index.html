@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lucaburgio/iconoir@main/css/iconoir.css">
+  <link rel="stylesheet" href="src/styles/reset.css">
+  <link rel="stylesheet" href="src/styles/app.css">
+  <title>영화 별점 평가하기</title>
+</head>
+<body>
+  <div class="movie" id="movie">
+    <div class="movie__container">
+      <div class="movie__poster">
+        <img src="https://w.namu.la/s/8891d593b2697ba82af7be7b639eddbe4293bb8c561622945619b02ad77594376b02929d0e6f4427e5e8bf6ea2cf51f5b6064758428c7c434c518943990489d83803c63605a7cdd7ce1e36f314e6b0eb06902362b833a96b11232dc97f1f003ad7a8bc71014f8affb5573ee66d255401" alt="바닷마을 다이어리">
+      </div>
+      <div class="movie__content">
+        <div class="movie__content-type">
+          <span>드라마</span>
+          <span>전체이용가</span>
+        </div>
+        <h1 class="movie__content-title">바닷마을 다이어리</h1>
+        <div class="movie__content-buttons">
+          <button type="button" class="recommand">
+            <i class="iconoir-thumbs-up">추천</i>
+          </button>
+          <button type="button" class="like">
+            <i class="iconoir-heart">찜하기</i>
+          </button>
+        </div>
+        <div class="movie__content-star">
+          <em class="average">별점 평균 4.5</em>
+          <div class="star">
+            <div class="star-container">
+              <img src="./src/images/icon_empty_star.png" alt="1" title="별로에요" data-point="1">
+              <img src="./src/images/icon_empty_star.png" alt="2" title="그저그래요" data-point="2">
+              <img src="./src/images/icon_empty_star.png" alt="3" title="괜찮아요" data-point="3">
+              <img src="./src/images/icon_empty_star.png" alt="4" title="좋아요" data-point="4">
+              <img src="./src/images/icon_empty_star.png" alt="5" title="너무좋아요" data-point="5">
+            </div>
+            <div class="star-remove">
+              <img src="./src/images/icon_remove_star.png" alt="별점 초기화">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="src/js/main.js"></script>
+</body>
+</html>
