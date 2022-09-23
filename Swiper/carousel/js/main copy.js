@@ -1,13 +1,11 @@
 (() => {
   const nodes = {
     carouselList: document.querySelector('.carousel__list'),
-    carouselItems: Array.from(document.querySelectorAll('.carousel__item')),
+    carouselItems: document.querySelectorAll('.carousel__item'),
     prevBtn: document.querySelector('.prev'),
     nextBtn: document.querySelector('.next'),
     uploadInput: document.querySelector('.image__upload-input')
   }
-
-  let current = 0
 
   function init () {
     initEvents()
@@ -36,15 +34,19 @@
   }
 
   function goToNext () {
-    if (nodes.carouselItems.length < 1) return
+    const { carouselList, carouselItems } = nodes
 
-    nodes.carouselList.append(nodes.carouselItems[current])
+    if (carouselItems.length > 1) {
+      const current = document.querySelector('.current')
+      const nextItem = current.nextElementSibling
+      carouselList.appendChild(current)
+      current.classList.remove('current')
+      nextItem.classList.add('current')
+    }
 
-    current++
-    const arr = nodes.carouselItems.splice(0, current)
-    nodes.carouselItems.push(...arr)
+    changeTransform()
   }
-
+  
   function goToPrev () {
     const { carouselList, carouselItems } = nodes
 
