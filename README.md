@@ -12,3 +12,11 @@ Calculator Dark Mode             |  Calculator Light Mode
 * 지우기
 * 결과 값 계산식 보여주기
 * 라이트모드 / 다크모드(기본)
+
+## 영화 별점
+<img width="713" alt="image" src="https://user-images.githubusercontent.com/38209966/191999800-07bffe4b-a3f2-467e-949e-69c0054273e0.png">
+
+### 기본 기능
+* 좋아요, 찜 버튼 toggle
+* 마우스 위치에 따른 별점 개수
+* 별점 초기화
