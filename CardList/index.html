@@ -3,33 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/reset.css">
+  <link rel="stylesheet" href="./styles/app.css">
   <title>웹 접근성 | 베스트셀러 도서</title>
 </head>
 <body>
   <div id="app">
-    <div class="cinema">
-      <h1>2022년 베스트셀러</h1>
-      <p class="line"></p>
-      <nav class="cimena__menu">
-        <ul class="cimena__menu-list">
-          <li class="cimena__menu-item">
+    <div class="book">
+      <header class="header">
+        <h1>2022년 베스트셀러</h1>
+        <p class="line"></p>
+        <ul class="book__menu">
+          <li class="book__menu-item">
             <a href="#">2022년 베스트셀러</a>
           </li>
-          <li class="cimena__menu-item">
+          <li class="book__menu-item">
             <a href="#">2021년 베스트셀러</a>
           </li>
-          <li class="cimena__menu-item">
-            <a href="#">밀리의서재 베스트셀러</a>
+          <li class="book__menu-item">
+            <a href="#">장유진의 서재</a>
           </li>
         </ul>
-      </nav>
+      </header>
 
-      <section class="cinema__container">
-        <div class="cinema__card">
-          <div class="cinema__card-inner">
-            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3368499%2F33684998621.20220811101806.jpg&type=w276" alt="불편한 편의점 2">
-            <div class="cinema__card-content">
-              <em class="title"></em>
+      <section class="book__container">
+        <div class="book__card">
+          <div class="book__card-inner">
+            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3368499%2F33684998621.20220811101806.jpg&type=w276" alt="">
+            <div class="book__card-content">
+              <em class="title">불편한 편의점 2</em>
               <dl class="info">
                 <div>
                   <dt>저자</dt>
@@ -51,11 +53,11 @@
             </div>
           </div>
         </div>
-        <div class="cinema__card">
-          <div class="cinema__card-inner">
-            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3410601%2F34106011618.20220818093442.jpg&type=w276" alt="잘될 수밖에 없는 너에게">
-            <div class="cinema__card-content">
-              <em class="title"></em>
+        <div class="book__card">
+          <div class="book__card-inner">
+            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3410601%2F34106011618.20220818093442.jpg&type=w276" alt="">
+            <div class="book__card-content">
+              <em class="title">잘될 수밖에 없는 너에게</em>
               <dl class="info">
                 <div>
                   <dt>저자</dt>
@@ -77,11 +79,11 @@
             </div>
           </div>
         </div>
-        <div class="cinema__card">
-          <div class="cinema__card-inner">
-            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3434574%2F34345747674.20220830140856.jpg&type=w276" alt="그대만 모르는 비밀 하나">
-            <div class="cinema__card-content">
-              <em class="title"></em>
+        <div class="book__card">
+          <div class="book__card-inner">
+            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3434574%2F34345747674.20220830140856.jpg&type=w276" alt="">
+            <div class="book__card-content">
+              <em class="title">그대만 모르는 비밀 하나</em>
               <dl class="info">
                 <div>
                   <dt>저자</dt>
@@ -103,11 +105,11 @@
             </div>
           </div>
         </div>
-        <div class="cinema__card">
-          <div class="cinema__card-inner">
-            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3393982%2F33939827618.20220808182811.jpg&type=w276" alt="파친코 2">
-            <div class="cinema__card-content">
-              <em class="title"></em>
+        <div class="book__card">
+          <div class="book__card-inner">
+            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3393982%2F33939827618.20220808182811.jpg&type=w276" alt="">
+            <div class="book__card-content">
+              <em class="title">파친코 2</em>
               <dl class="info">
                 <div>
                   <dt>저자</dt>
@@ -129,11 +131,11 @@
             </div>
           </div>
         </div>
-        <div class="cinema__card">
-          <div class="cinema__card-inner">
-            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3429447%2F34294472620.20220830140726.jpg&type=w276" alt="아버지의 해방일지">
-            <div class="cinema__card-content">
-              <em class="title"></em>
+        <div class="book__card">
+          <div class="book__card-inner">
+            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3429447%2F34294472620.20220830140726.jpg&type=w276" alt="">
+            <div class="book__card-content">
+              <em class="title">아버지의 해방일지</em>
               <dl class="info">
                 <div>
                   <dt>저자</dt>
@@ -155,11 +157,11 @@
             </div>
           </div>
         </div>
-        <div class="cinema__card">
-          <div class="cinema__card-inner">
-            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3368498%2F33684983664.20220808092115.jpg&type=w276" alt="하얼빈">
-            <div class="cinema__card-content">
-              <em class="title"></em>
+        <div class="book__card">
+          <div class="book__card-inner">
+            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3368498%2F33684983664.20220808092115.jpg&type=w276" alt="">
+            <div class="book__card-content">
+              <em class="title">하얼빈</em>
               <dl class="info">
                 <div>
                   <dt>저자</dt>
@@ -181,11 +183,11 @@
             </div>
           </div>
         </div>
-        <div class="cinema__card">
-          <div class="cinema__card-inner">
-            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3255028%2F32550285396.20220914160250.jpg&type=w276" alt="역행자">
-            <div class="cinema__card-content">
-              <em class="title"></em>
+        <div class="book__card">
+          <div class="book__card-inner">
+            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3255028%2F32550285396.20220914160250.jpg&type=w276" alt="">
+            <div class="book__card-content">
+              <em class="title">역행자</em>
               <dl class="info">
                 <div>
                   <dt>저자</dt>
@@ -207,11 +209,11 @@
             </div>
           </div>
         </div>
-        <div class="cinema__card">
-          <div class="cinema__card-inner">
-            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3247757%2F32477571968.20220527025557.jpg&type=w276" alt="어서 오세요, 휴남동 서점입니다">
-            <div class="cinema__card-content">
-              <em class="title"></em>
+        <div class="book__card">
+          <div class="book__card-inner">
+            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3247757%2F32477571968.20220527025557.jpg&type=w276" alt="">
+            <div class="book__card-content">
+              <em class="title">어서 오세요, 휴남동 서점입니다</em>
               <dl class="info">
                 <div>
                   <dt>저자</dt>
@@ -233,11 +235,11 @@
             </div>
           </div>
         </div>
-        <div class="cinema__card">
-          <div class="cinema__card-inner">
-            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3244520%2F32445205657.20220527025017.jpg&type=w276" alt="기분이 태도가 되지 않게">
-            <div class="cinema__card-content">
-              <em class="title"></em>
+        <div class="book__card">
+          <div class="book__card-inner">
+            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3244520%2F32445205657.20220527025017.jpg&type=w276" alt="">
+            <div class="book__card-content">
+              <em class="title">기분이 태도가 되지 않게</em>
               <dl class="info">
                 <div>
                   <dt>저자</dt>
