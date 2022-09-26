@@ -30,3 +30,6 @@ Calculator Dark Mode             |  Calculator Light Mode
 * 좋아요, 찜 버튼 toggle
 * 마우스 위치에 따른 별점 개수
 * 별점 초기화
+
+## 도서 카드 리스트
+![127 0 0 1_5500_CardList_ (1)](https://user-images.githubusercontent.com/38209966/192323157-1874c8d3-bb2c-4375-8d3e-09c6550cab0d.png)
