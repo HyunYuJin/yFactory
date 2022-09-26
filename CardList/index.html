@@ -8,31 +8,42 @@
   <title>웹 접근성 | 베스트셀러 도서</title>
 </head>
 <body>
+  <div class="nav-skip">
+    <a href="#bookNav">유진의 서재 베스트셀러 바로가기</a>
+    <a href="#bookBest">2022년 베스트셀러 바로가기</a>
+  </div>
   <div id="app">
-    <div class="book">
-      <header class="header">
-        <h1>2022년 베스트셀러</h1>
-        <p class="line"></p>
-        <ul class="book__menu">
-          <li class="book__menu-item">
-            <a href="#">2022년 베스트셀러</a>
-          </li>
-          <li class="book__menu-item">
-            <a href="#">2021년 베스트셀러</a>
-          </li>
-          <li class="book__menu-item">
-            <a href="#">장유진의 서재</a>
-          </li>
-        </ul>
+    <h1 class="sr-only">유진의 서재</h1>
+    <section class="book__container">
+      <h2 class="book__container-title">유진의 서재 도서 목록</h2>
+      <header>
+        <h3 class="sr-only">유진의 서재 베스트셀러</h3>
+        <nav class="book__nav" id="bookNav">
+          <ul class="book__nav-list">
+            <li class="book__nav-item on">
+              <a href="#" class="book__nav-link">2022년 베스트셀러</a>
+            </li>
+            <li class="book__nav-item">
+              <a href="#" class="book__nav-link">2021년 베스트셀러</a>
+            </li>
+            <li class="book__nav-item">
+              <a href="#" class="book__nav-link">장유진의 서재</a>
+            </li>
+          </ul>
+        </nav>
       </header>
-
-      <section class="book__container">
-        <div class="book__card">
-          <div class="book__card-inner">
-            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3368499%2F33684998621.20220811101806.jpg&type=w276" alt="">
-            <div class="book__card-content">
-              <em class="title">불편한 편의점 2</em>
-              <dl class="info">
+      <section id="bookBest">
+        <h3 class="sr-only">2022년 베스트셀러</h3>
+        <ul class="book__list">
+          <li class="book__list-item">
+            <article>
+              <h4 class="sr-only">도서 상세 목록</h4>
+              <a href="#" class="book__list-link">
+                <!-- strong과 겹치지만, 링크 태그의 출처를 위해 alt를 써준다. -->
+                <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3368499%2F33684998621.20220811101806.jpg&type=w276" alt="불편한 편의점 2">
+              </a>
+              <strong class="title sl-ellipsis">불편한 편의점 2</strong>
+              <dl class="book__list-info">
                 <div>
                   <dt>저자</dt>
                   <dd>김호연</dd>
@@ -50,15 +61,17 @@
                   <dd>4.8(75)</dd>
                 </div>
               </dl>
-            </div>
-          </div>
-        </div>
-        <div class="book__card">
-          <div class="book__card-inner">
-            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3410601%2F34106011618.20220818093442.jpg&type=w276" alt="">
-            <div class="book__card-content">
-              <em class="title">잘될 수밖에 없는 너에게</em>
-              <dl class="info">
+            </article>
+            <a href="#" class="link-cart">장바구니</a><a href="#" class="link-buy">구매하기</a>
+          </li>
+          <li class="book__list-item">
+            <article>
+              <h4 class="sr-only">도서 상세 목록</h4>
+              <a href="#" class="book__list-link">
+                <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3410601%2F34106011618.20220818093442.jpg&type=w276" alt="잘될 수밖에 없는 너에게">
+              </a>
+              <strong class="title sl-ellipsis">잘될 수밖에 없는 너에게</strong>
+              <dl class="book__list-info">
                 <div>
                   <dt>저자</dt>
                   <dd>최서영</dd>
@@ -76,15 +89,17 @@
                   <dd>4.8(28)</dd>
                 </div>
               </dl>
-            </div>
-          </div>
-        </div>
-        <div class="book__card">
-          <div class="book__card-inner">
-            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3434574%2F34345747674.20220830140856.jpg&type=w276" alt="">
-            <div class="book__card-content">
-              <em class="title">그대만 모르는 비밀 하나</em>
-              <dl class="info">
+            </article>
+            <a href="#" class="link-cart">장바구니</a><a href="#" class="link-buy">구매하기</a>
+          </li>
+          <li class="book__list-item">
+            <article>
+              <h4 class="sr-only">도서 상세 목록</h4>
+              <a href="#" class="book__list-link">
+                <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3434574%2F34345747674.20220830140856.jpg&type=w276" alt="그대만 모르는 비밀 하나">
+              </a>
+              <strong class="title sl-ellipsis">그대만 모르는 비밀 하나</strong>
+              <dl class="book__list-info">
                 <div>
                   <dt>저자</dt>
                   <dd>뤼후이</dd>
@@ -102,15 +117,17 @@
                   <dd>4.8</dd>
                 </div>
               </dl>
-            </div>
-          </div>
-        </div>
-        <div class="book__card">
-          <div class="book__card-inner">
-            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3393982%2F33939827618.20220808182811.jpg&type=w276" alt="">
-            <div class="book__card-content">
-              <em class="title">파친코 2</em>
-              <dl class="info">
+            </article>
+            <a href="#" class="link-cart">장바구니</a><a href="#" class="link-buy">구매하기</a>
+          </li>
+          <li class="book__list-item">
+            <article>
+              <h4 class="sr-only">도서 상세 목록</h4>
+              <a href="#" class="book__list-link">
+                <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3393982%2F33939827618.20220808182811.jpg&type=w276" alt="파친코 2">
+              </a>
+              <strong class="title sl-ellipsis">파친코 2</strong>
+              <dl class="book__list-info">
                 <div>
                   <dt>저자</dt>
                   <dd>이민진</dd>
@@ -128,15 +145,17 @@
                   <dd>4.8(26)</dd>
                 </div>
               </dl>
-            </div>
-          </div>
-        </div>
-        <div class="book__card">
-          <div class="book__card-inner">
-            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3429447%2F34294472620.20220830140726.jpg&type=w276" alt="">
-            <div class="book__card-content">
-              <em class="title">아버지의 해방일지</em>
-              <dl class="info">
+            </article>
+            <a href="#" class="link-cart">장바구니</a><a href="#" class="link-buy">구매하기</a>
+          </li>
+          <li class="book__list-item">
+            <article>
+              <h4 class="sr-only">도서 상세 목록</h4>
+              <a href="#" class="book__list-link">
+                <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3429447%2F34294472620.20220830140726.jpg&type=w276" alt="아버지의 해방일지">
+              </a>
+              <strong class="title sl-ellipsis">아버지의 해방일지</strong>
+              <dl class="book__list-info">
                 <div>
                   <dt>저자</dt>
                   <dd>정지아</dd>
@@ -154,15 +173,17 @@
                   <dd>4.5(2)</dd>
                 </div>
               </dl>
-            </div>
-          </div>
-        </div>
-        <div class="book__card">
-          <div class="book__card-inner">
-            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3368498%2F33684983664.20220808092115.jpg&type=w276" alt="">
-            <div class="book__card-content">
-              <em class="title">하얼빈</em>
-              <dl class="info">
+            </article>
+            <a href="#" class="link-cart">장바구니</a><a href="#" class="link-buy">구매하기</a>
+          </li>
+          <li class="book__list-item">
+            <article>
+              <h4 class="sr-only">도서 상세 목록</h4>
+              <a href="#" class="book__list-link">
+                <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3368498%2F33684983664.20220808092115.jpg&type=w276" alt="하얼빈">
+              </a>
+              <strong class="title sl-ellipsis">하얼빈</strong>
+              <dl class="book__list-info">
                 <div>
                   <dt>저자</dt>
                   <dd>김훈</dd>
@@ -180,15 +201,17 @@
                   <dd>4.7(133)</dd>
                 </div>
               </dl>
-            </div>
-          </div>
-        </div>
-        <div class="book__card">
-          <div class="book__card-inner">
-            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3255028%2F32550285396.20220914160250.jpg&type=w276" alt="">
-            <div class="book__card-content">
-              <em class="title">역행자</em>
-              <dl class="info">
+            </article>
+            <a href="#" class="link-cart">장바구니</a><a href="#" class="link-buy">구매하기</a>
+          </li>
+          <li class="book__list-item">
+            <article>
+              <h4 class="sr-only">도서 상세 목록</h4>
+              <a href="#" class="book__list-link">
+                <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3255028%2F32550285396.20220914160250.jpg&type=w276" alt="역행자">
+              </a>
+              <strong class="title sl-ellipsis">역행자</strong>
+              <dl class="book__list-info">
                 <div>
                   <dt>저자</dt>
                   <dd>자청</dd>
@@ -206,15 +229,17 @@
                   <dd>4.7(231)</dd>
                 </div>
               </dl>
-            </div>
-          </div>
-        </div>
-        <div class="book__card">
-          <div class="book__card-inner">
-            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3247757%2F32477571968.20220527025557.jpg&type=w276" alt="">
-            <div class="book__card-content">
-              <em class="title">어서 오세요, 휴남동 서점입니다</em>
-              <dl class="info">
+            </article>
+            <a href="#" class="link-cart">장바구니</a><a href="#" class="link-buy">구매하기</a>
+          </li>
+          <li class="book__list-item">
+            <article>
+              <h4 class="sr-only">도서 상세 목록</h4>
+              <a href="#" class="book__list-link">
+                <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3247757%2F32477571968.20220527025557.jpg&type=w276" alt="어서 오세요, 휴남동 서점입니다">
+              </a>
+              <strong class="title sl-ellipsis">어서 오세요, 휴남동 서점입니다</strong>
+              <dl class="book__list-info">
                 <div>
                   <dt>저자</dt>
                   <dd>황보름</dd>
@@ -232,15 +257,17 @@
                   <dd>4.8(25)</dd>
                 </div>
               </dl>
-            </div>
-          </div>
-        </div>
-        <div class="book__card">
-          <div class="book__card-inner">
-            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3244520%2F32445205657.20220527025017.jpg&type=w276" alt="">
-            <div class="book__card-content">
-              <em class="title">기분이 태도가 되지 않게</em>
-              <dl class="info">
+            </article>
+            <a href="#" class="link-cart">장바구니</a><a href="#" class="link-buy">구매하기</a>
+          </li>
+          <li class="book__list-item">
+            <article>
+              <h4 class="sr-only">도서 상세 목록</h4>
+              <a href="#" class="book__list-link">
+                <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3244520%2F32445205657.20220527025017.jpg&type=w276" alt="기분이 태도가 되지 않게">
+              </a>
+              <strong class="title sl-ellipsis">기분이 태도가 되지 않게</strong>
+              <dl class="book__list-info">
                 <div>
                   <dt>저자</dt>
                   <dd>레몬심리</dd>
@@ -258,11 +285,12 @@
                   <dd>4.8</dd>
                 </div>
               </dl>
-            </div>
-          </div>
-        </div>
+            </article>
+            <a href="#" class="link-cart">장바구니</a><a href="#" class="link-buy">구매하기</a>
+          </li>
+        </ul>
       </section>
-    </div>
+    </section>
   </div>
 </body>
 </html>

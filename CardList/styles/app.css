@@ -1,83 +1,152 @@
+@charset "utf-8";
+
+/* 유틸리티 */
+.sr-only {
+  position: absolute;
+  top: auto;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* 한줄 말줄임 */
+.sl-ellipsis {
+  display:block;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 #app {
   font-family: 'Roboto';
   font-style: normal;
   color: #000000;
 }
 
-.book {
-  max-width: 1060px;
-  margin: 0 auto;
-  padding: 41px 28px 31px;
-  background-color: #F2F2F2;
-  border: 2px solid #BDBDBD;
-  border-radius: 15px;
-}
-
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.header h1 {
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 28px;
-  text-align: center;
-  margin-bottom: 37px;
-}
-
-.header .line {
-  width: 650px;
-  border: 2px solid #BDBDBD;
-}
-
-.book__menu {
-  display: flex;
-}
-
-.book__menu .book__menu-item {
-  font-weight: 900;
-  font-size: 16px;
-  line-height: 19px;
-  padding: 28px 30px;
-}
-
-.book__menu .book__menu-item a {
-  text-decoration: none;
-  color: #000000;
-}
-
 .book__container {
-  padding: 26px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 16px;
-  background-color: #FFFFFF;
+  max-width: 1006px;
+  margin: 86px auto 0;
+  padding: 0 27px 29px;
   border: 2px solid #BDBDBD;
   border-radius: 15px;
+  background-color: #E5E5E5;
 }
 
-.book__card {
-  max-width: 220px;
-  height: 441px;
-  padding: 15px;
-  border-radius: 15px;
+.book__container .book__container-title {
+  font-size: 24px;
+  text-align: center;
+  line-height: 28px;
+  padding: 38px 0;
+}
+
+.book__nav {
+  text-align: center;
+}
+
+.book__nav::before {
+  content: '';
+  display: block;
+  width: 650px;
+  height: 2px;
+  background-color: #BDBDBD;
+  margin: 0 auto;
+}
+
+.book__nav .book__nav-list {
+  display: inline-flex;
+  margin: 27px 0;
+}
+
+.book__nav .book__nav-list .book__nav-item + li { /* li 옆에있는 li */
+  margin-left: 60px;
+}
+
+.book__nav .book__nav-list .book__nav-item.on .book__nav-link {
+  color: #000000;
+  font-weight: bold;
+}
+
+.book__nav .book__nav-list .book__nav-item .book__nav-link {
+  color: #828282;
+}
+
+.book__container .book__list {
+  padding: 0 12px 24px 12px;
+  background-color: #FFF;
   border: 2px solid #BDBDBD;
+  border-radius: 15px;
+  overflow: hidden;
 }
 
-.book__card-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.book__container .book__list .book__list-item {
+  overflow: hidden;
+  border: 1px solid #BDBDBD;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  margin: 24px 12px 0;
+  float: left;
 }
 
-.book__card img {
-  width: 90%;
-  border-radius: 8px;
+.book__container .book__list .book__list-item article {
+  width: 180px;
+  padding: 19px 19px 0 19px;
 }
 
-.book__card .title {
-  font-size: 16px;
-  font-weight: 600; 
+.book__container .book__list .book__list-item > a[class^="link"] {
+  display: inline-block;
+  width: 50%;
+  height: 41px;
+  text-align: center;
+  line-height: 41px;
+  background-color: #F2F2F2;
+  border-top: 1px solid #BDBDBD;
+}
+
+.book__container .book__list .book__list-item .link-cart::after {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 100%;
+  background-color: #BDBDBD;
+  float: right;
+}
+
+.book__container .book__list .book__list-item .book__list-link {
+  display: block;
+  margin-bottom: 11px;
+}
+
+.book__container .book__list .book__list-item .book__list-link img {
+  width: 180px;
+  height: 250px;
+  object-fit: cover;
+}
+
+.book__container .book__list .book__list-item .book__list-info {
+  margin-top: 12px;
+  margin-bottom: 5px;
+}
+
+.book__container .book__list .book__list-item .book__list-info dt, 
+.book__container .book__list .book__list-item .book__list-info dd {
+  display: inline-block;
+  font-size: 13px;
+  vertical-align: top;
+  line-height: 1.2;
+}
+
+.book__container .book__list .book__list-item .book__list-info dt {
+  font-weight: lighter;
+  color: #828282;
+}
+
+.book__container .book__list .book__list-item .book__list-info .item-star dt::after {
+  display: inline-block;
+  content: '';
+  width: 14px;
+  height: 13px;
+  margin-left: 5px;
+  background-image: url(../images/star.png);
+  background-repeat: no-repeat;
+  vertical-align: top;
 }
