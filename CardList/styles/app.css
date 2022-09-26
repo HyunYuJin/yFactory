@@ -76,6 +76,9 @@
   border: 2px solid #BDBDBD;
   border-radius: 15px;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .book__container .book__list .book__list-item {
@@ -84,7 +87,6 @@
   border-radius: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   margin: 24px 12px 0;
-  float: left;
 }
 
 .book__container .book__list .book__list-item article {
