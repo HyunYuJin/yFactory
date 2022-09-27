@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lucaburgio/iconoir@main/css/iconoir.css">
+  <link rel="stylesheet" href="./styles/reset.css">
+  <link rel="stylesheet" href="./styles/index.css">
+  <title>JS 영어 단어 사전</title>
+</head>
+<body>
+  <div class="dictionary">
+    <header>
+      <h1>영어 단어 사전</h1>
+      <div class="dictionary__search">
+        <input type="text" placeholder="영단어를 검색하세요" required spellcheck="false" class="search__input">
+        <i class="iconoir-search search"></i>
+        <i class="iconoir-cancel cancel"></i>
+      </div>
+      <p class="dictionary__info">
+        영어를 대상으로 하여 영어의 어휘와 여러 연어, 숙어, 문법 등을 알파벳 순으로 찾아낼 수 있도록 하는 사전
+      </p>
+    </header>
+   
+    <section class="dictionary__content">
+      <h2 class="sr-only">검색 결과</h2>
+      <article class="dictionary__word">
+        <h3 class="sr-only">영어 단어</h3>
+        <div class="dictionary__word-details">
+          <p class="word">yellow</p>
+          <span class="text">noun //jɛlə//</span>
+        </div>
+        <i class="iconoir-sound-high"></i>
+      </article>
+      <ul class="dictionary__word-list">
+        <li class="meaning">
+          <div class="dictionary__word-details">
+            <p>Meaning</p>
+            <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit, animi possimus facilis cupiditate odio officia commodi? Iusto adipisci eum quae dolorem dolore. Provident labore aut nam voluptate eius unde repellat.</span>
+          </div>
+        </li>
+        <li class="example">
+          <div class="dictionary__word-details">
+            <p>Example</p>
+            <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit, animi possimus facilis cupiditate odio officia commodi? Iusto adipisci eum quae dolorem dolore. Provident labore aut nam voluptate eius unde repellat.</span>
+          </div>
+        </li>
+        <li class="synonyms">
+          <div class="dictionary__word-details">
+            <p>Synonyms</p>
+            <div class="list"></div>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </div>  
+
+  <script src="./js/main.js"></script>
+</body>
+</html>
