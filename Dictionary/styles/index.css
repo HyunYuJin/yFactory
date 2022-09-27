@@ -134,7 +134,7 @@ body {
   align-items: center;
   padding-bottom: 18px;
   margin-bottom: 14px;
-  border-bottom: 1px solid var(--gray);
+  border-bottom: 1px solid var(--neu-2);
 }
 
 .dictionary__word .dictionary__word-details .word {
@@ -169,14 +169,21 @@ body {
   width: 0px;
 }
 
+.dictionary__word-list .dictionary__word-details {
+  padding-left: 10px;
+  border-radius: 4px 0 0 4px;
+  border-left: 3px solid var(--purple);
+}
+
 .dictionary__word-list .dictionary__word-details p {
   font-weight: 500;
   font-size: 16px;
   color: var(--black);
+  margin-bottom: 4px;
 }
 .dictionary__word-list .dictionary__word-details span {
   font-size: 15px;
-  color: #7E7E7E;
+  color: var(--gray);
 }
 
 .dictionary__word-list .synonyms .list {
