@@ -3,40 +3,34 @@ const nodes = {
   input: document.querySelector('.search__input'),
   info: document.querySelector('.dictionary__info'),
   word: document.querySelector('.word'),
-  phontetics: document.querySelector('.phontetics'),
-  volumn: document.querySelector('.volumn'),
-  meaning: document.querySelector('.meaning span'),
-  example: document.querySelector('.example span'),
+  meanings: document.querySelector('.meanings'),
+  phonetics: document.querySelector('.phonetics .phonetic'),
+  partOfSpeech: document.querySelector('.partOfSpeech'),
+  examples: document.querySelector('.dictionary__example-list'),
   synonyms: document.querySelector('.synonyms'),
+  antonyms: document.querySelector('.antonyms'),
   cancel: document.querySelector('.cancel')
 }
-let audio
+let data = null
+let audio = []
 
 function init () {
   initEvents()
 }
 
 function initEvents () {
-  nodes.input.addEventListener('keyup',  (event) => {
-    handleKeyUp(event)
-  })
-  nodes.input.addEventListener('change', (event) => {
-    handleChange(event)
-  })
-  nodes.volumn.addEventListener('click', (event) => {
-    handleVolumn(event)
-  })
-  nodes.cancel.addEventListener('click', (event) => {
-    handleRemove(event)
-  })
+  nodes.input.addEventListener('keyup', handleKeyUp)
+  nodes.input.addEventListener('change', handleChange)
+  nodes.cancel.addEventListener('click', handleRemove)
 }
 
-function handleKeyUp (event) {
+async function handleKeyUp (event) {
   const { target, key } = event
   const word = target.value.replace(/\s+/g, ' ')
 
   if (key == 'Enter' && word) {
-    getData(word)
+    data = parseData(await getData(word))
+    setDictionary()
   }
 }
 
@@ -45,7 +39,6 @@ function handleChange (event) {
 }
 
 function handleVolumn (event) {
-  console.log(event)
   nodes.volumn.style.color = '#4B70E2'
   audio.play()
 
@@ -55,42 +48,107 @@ function handleVolumn (event) {
 }
 
 function handleRemove (event) {
-  console.log(event)
   nodes.input.value = ''
   nodes.input.focus()
+
+  nodes.info.innerText = '영어를 대상으로 하여 영어의 어휘와 여러 연어, 숙어, 문법 등을 알파벳 순으로 찾아낼 수 있도록 하는 사전'
+  nodes.word.innerText = ''
+  nodes.meanings.innerHTML = ''
+  nodes.phonetics.innerHTML = ''
+  audio = []
 }
 
 async function getData (word) {
-  nodes.dictionary.classList.remove('active')
-
   try {
-    const data = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
-    const result = await data.json()
-    setDictionary(...result)
-    nodes.info.innerHTML = `${word}의 검색 결과입니다.`
+    const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+    const data = await response.json()
+
+    if (response.ok) {
+      return data[0]
+    } else {
+      const message = `에러 발생: ${response.status}`
+      throw new Error(message)
+    }
   } catch (error) {
     nodes.info.innerHTML = `${word}라는 단어를 찾을 수 없습니다.`
-    throw error
+    console.error(error.message)
   }
 }
 
-function setDictionary (result) {
-  const definitions = result.meanings[0]?.definitions[0]
-
-  nodes.dictionary.classList.add('active')
-  nodes.word.innerText = result.word
-  nodes.phontetics.innerText = `${result.meanings[0]?.partOfSpeech} /${result.phonetics[0]?.text}/`
-  nodes.meaning.innerText = definitions.definition
-  nodes.example.innerText = definitions.example
-
-  result.phonetics?.find(item => audio = new Audio(item.audio))
-  
-  if (result.meanings[0].synonyms) {
-    console.log(result.meanings[0].synonyms)
-    result.meanings[0].synonyms.forEach((item, index) => {
-      nodes.synonyms.querySelector('.list').innerHTML += `<li>${item}</li>`
+function parseData (result) {
+  result.meanings.forEach((meaning) => {
+    meaning.definitions = meaning.definitions.map(({
+      antonyms = [],
+      definition = [],
+      synonyms = [],
+      example = ''
+    }) => {
+      return {
+        antonyms,
+        definition,
+        synonyms,
+        example
+      }
     })
-  }
+  })
+
+  result.phonetics = result.phonetics.filter((phonetics) => phonetics.audio && phonetics.text)
+  
+  return result
+}
+
+function setDictionary () {
+  nodes.info.innerText = `${data.word}의 검색 결과입니다.`
+  nodes.word.insertAdjacentHTML('beforeend', data.word)
+  data.meanings.forEach((meaning, index) => {
+    const partOfSpeech = meaning.partOfSpeech
+    const antonyms = meaning.antonyms
+    const synonyms = meaning.synonyms
+    const fragment = document.createDocumentFragment()
+
+    nodes.examples.insertAdjacentHTML('beforeend', `
+      <li class="dictionary__example-item">
+        <em class="partOfSpeech">${partOfSpeech}</em>
+        <ol class="example"></ol>
+        ${synonyms.length > 0 ? (`
+          <div class="synonyms">
+            <h4 class="title">유의어 <span>[${synonyms.length}건]<span></h4>
+            <span>${synonyms}</span>
+          </div>
+        `) : ''}
+        ${antonyms.length > 0 ? (`
+            <div class="antonyms">
+              <h4 class="title">반의어 <span>[${antonyms.length}건]</span></h4>
+              <span>${antonyms}</span>
+            </div>
+          `) : ''}
+      </li>
+    `)
+
+    meaning.definitions.forEach(({
+      definition,
+      example
+    }) => {
+      nodes.meanings.insertAdjacentHTML('beforeend', `<li>${definition}</li>`)
+      if (example) {
+        const li = document.createElement('li')
+        li.textContent = example
+        fragment.appendChild(li)
+
+        nodes.examples.querySelectorAll('.example')[index].appendChild(fragment)
+      } else {
+        nodes.examples.querySelectorAll('.example')[index].insertAdjacentHTML('beforeend', `<li>No example</li>`)
+      }
+    })
+  })
+
+  data.phonetics.forEach((phonetic) => {
+    nodes.phonetics.insertAdjacentHTML('beforeend', `
+      <span>${phonetic.text}</span>
+      <i class="iconoir-sound-high volumn"></i>
+    `)
+    audio.push(new Audio(phonetic.audio))
+  })
 }
 
 init()
