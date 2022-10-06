@@ -107,11 +107,17 @@ body {
 }
 
 .dictionary .dictionary__content {
-  /* height: 0;
+  height: 0;
   opacity: 0;
-  overflow-y: hidden; */
-  margin: 18px 0;
+  overflow-y: hidden;
   transition: all 0.2s ease;
+}
+
+.dictionary.show .dictionary__content {
+  height: 420px;
+  overflow-y: auto;
+  opacity: 1;
+  margin: 18px 0;
 }
 
 .dictionary__word {

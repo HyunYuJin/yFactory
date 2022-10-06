@@ -20,7 +20,7 @@ function init () {
 
 function initEvents () {
   nodes.input.addEventListener('keyup', handleKeyUp)
-  nodes.input.addEventListener('change', handleChange)
+  nodes.input.addEventListener('input', handleInput)
   nodes.cancel.addEventListener('click', handleRemove)
 }
 
@@ -31,11 +31,18 @@ async function handleKeyUp (event) {
   if (key == 'Enter' && word) {
     data = parseData(await getData(word))
     setDictionary()
+
+    nodes.dictionary.classList.add('show')
   }
 }
 
-function handleChange (event) {
-  console.log(event)
+function handleInput (event) {
+  const { target } = event
+  const length = target.value.length
+
+  if (!length) {
+    handleRemove()
+  }
 }
 
 function handleVolumn (event) {
@@ -48,13 +55,15 @@ function handleVolumn (event) {
 }
 
 function handleRemove (event) {
+  nodes.dictionary.classList.remove('show')
   nodes.input.value = ''
   nodes.input.focus()
 
   nodes.info.innerText = '영어를 대상으로 하여 영어의 어휘와 여러 연어, 숙어, 문법 등을 알파벳 순으로 찾아낼 수 있도록 하는 사전'
-  nodes.word.innerText = ''
-  nodes.meanings.innerHTML = ''
-  nodes.phonetics.innerHTML = ''
+  nodes.word.textContent = ''
+  nodes.meanings.textContent = ''
+  nodes.examples.textContent = ''
+  nodes.phonetics.textContent = ''
   audio = []
 }
 
@@ -76,6 +85,7 @@ async function getData (word) {
 }
 
 function parseData (result) {
+  console.log(result.meanings)
   result.meanings.forEach((meaning) => {
     meaning.definitions = meaning.definitions.map(({
       antonyms = [],
