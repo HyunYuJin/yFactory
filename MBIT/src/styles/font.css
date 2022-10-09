@@ -1,0 +1,29 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+@font-face {
+  font-family: 'NotoSansKR-Light';
+  src: url('./fonts/Noto_Sans_KR/NotoSansKR-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NotoSansKR-Regular';
+  src: url('./fonts/Noto_Sans_KR/NotoSansKR-Regular.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NotoSansKR-Bold';
+  src: url('./fonts/Noto_Sans_KR/NotoSansKR-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GmarketSans-Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
