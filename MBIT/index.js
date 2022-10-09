@@ -11,11 +11,11 @@ app.get('/', (req, res) => {
 })
 
 app.get('/question', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src/question.html'))
+  res.sendFile(path.join(__dirname, 'src/components/question.html'))
 })
 
-app.get('/result', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src/result.html'))
+app.get('/result/[1-5]', (req, res) => {
+  res.sendFile(path.join(__dirname, 'src/components/result.html'))
 })
 
 app.listen(3000, () => {
