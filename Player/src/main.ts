@@ -1,6 +1,7 @@
 import Player from './player'
 import { defaultConfigs } from './configs'
 import './utils'
+import './styles/style.scss'
 
 const configs = Object.assign({
   autoplay: false
