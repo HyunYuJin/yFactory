@@ -5,3 +5,43 @@
   top: 50%;
   box-shadow: 0 8px 0 0 #BE272A;
 }
+
+.record {
+  width: 53.03%;
+  height: 92.105%;
+  background-color: #181312;
+  border-radius: 50%;
+  position: absolute;
+  top: 5%;
+  left: 6.1%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    border: 5px solid transparent;
+    border-top-color: #2c2424;
+    border-bottom-color: #2c2424;
+    border-radius: 50%;
+  }
+
+  &::before {
+    width: 77.14%;
+    height: 77.14%;
+  }
+
+  &::after {
+    width: 54.285%;
+    height: 54.285%;
+  }
+
+  .label {
+    background-color: #181312;
+    width: 8.57%;
+    height: 8.57%;
+    border: 20px solid #FF8200;
+    border-radius: 50%;
+  }
+}

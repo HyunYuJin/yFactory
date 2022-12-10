@@ -12,7 +12,7 @@ class Record {
 
   init () {
     this.initDOM()
-    this.initColor()
+    this.initStyles()
   }
 
   initDOM () {
@@ -34,14 +34,16 @@ class Record {
     this.nodes.player = this.element.querySelector('.player')
   }
 
-  initColor () {
-    const { width, height, color, radius } = this.options 
+  initStyles () {
+    const { width, height, color, radius } = this.options
+
     addStyle(this.nodes.player, {
       width,
       height,
       backgroundColor: color,
       borderRadius: radius
     })
+
   }
 }
 
