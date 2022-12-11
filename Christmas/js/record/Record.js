@@ -1,5 +1,5 @@
 import '../../styles/record.scss'
-import { addStyle } from '../utils'
+import { addStyle, addClass } from '../utils'
 
 class Record {
   constructor (element, options) {
@@ -13,6 +13,7 @@ class Record {
   init () {
     this.initDOM()
     this.initStyles()
+    this.initEvents()
   }
 
   initDOM () {
@@ -24,7 +25,7 @@ class Record {
         <div class="tone-arm">
           <div class="control"></div>
         </div>
-        <button type="button" class="btn"></button>
+        <button type="button" class="button"></button>
         <div class="volume">
           <input type="range" class="slider" min="0" max="1" step="0.1" value="0.7">
         </div>
@@ -32,6 +33,9 @@ class Record {
     `)
 
     this.nodes.player = this.element.querySelector('.player')
+    this.nodes.record = this.element.querySelector('.record')
+    this.nodes.button = this.element.querySelector('.button')
+    this.nodes.tone = this.element.querySelector('.tone-arm')
   }
 
   initStyles () {
@@ -43,7 +47,15 @@ class Record {
       backgroundColor: color,
       borderRadius: radius
     })
+  }
 
+  initEvents () {
+    this.nodes.button.addEventListener('click', this.onClick.bind(this))
+  }
+
+  onClick () {
+    addClass(this.nodes.record, 'on')
+    addClass(this.nodes.tone, 'play')
   }
 }
 

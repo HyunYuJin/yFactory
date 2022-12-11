@@ -37,11 +37,113 @@
     height: 54.285%;
   }
 
+  &.on {
+    animation: spin 3s 1s linear infinite;
+  }
+
   .label {
     background-color: #181312;
     width: 8.57%;
     height: 8.57%;
     border: 20px solid #FF8200;
     border-radius: 50%;
+  }
+}
+
+.tone-arm {
+  width: 1.8181%;
+  height: 47.368%;
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 13.157%;
+  right: 28.7878%;
+  transition: all 1s;
+  transform-origin: top;
+
+  &::before {
+    content: "";
+    width: 6px;
+    height: 40px;
+    background-color: #FFFFFF;
+    position: absolute;
+    transform: rotate(30deg);
+    bottom: -36px;
+    right: 10px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 0;
+    border-top: 18px solid #B2AEA6;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+    top: 108px;
+    right: 12.5px;
+    transform: rotate(30deg);
+  }
+
+  &.play {
+    transform: rotate(30deg);
+    transform-origin: top;
+    transition: all 1s;
+  }
+
+  .control {
+    background-color: #181312;
+    width: 16px;
+    height: 16px;
+    border: 10px solid #2C2C2C;
+    border-radius: 50%;
+    position: absolute;
+    top: -16px;
+    left: -15px;
+  }
+}
+
+.button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #ED5650;
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  border: none;
+  border: 3.5px solid rgb(190, 39, 42);
+  outline: none;
+  cursor: pointer;
+}
+
+.volume {
+  .slider {
+    -webkit-appearance: none;
+    appearance: none;
+    transform: rotate(90deg);
+    width: 90px;
+    height: 7px;
+    position: absolute;
+    left: 233px;
+    top: 60px;
+    background-color: #BE272A;
+    outline: none;
+    border-radius: 3px;
+    border: 6px solid #ED5650;
+  
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 10px;
+      height: 12px;
+      background-color: #FFFFFF;
+      cursor: pointer;
+    }
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
   }
 }
