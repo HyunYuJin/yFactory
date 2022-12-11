@@ -1,0 +1,37 @@
+[
+  {
+    "id": 0,
+    "url": "https://raw.githubusercontent.com/HyunYuJin/yFactory/main/Christmas/assets/audio/LastChristmas.mp3",
+    "title": "Last Christmas",
+    "artist": "Wham!",
+    "album": "album01"
+  },
+  {
+    "id": 1,
+    "url": "https://raw.githubusercontent.com/HyunYuJin/yFactory/main/Christmas/assets/audio/ThinkOfChristmas.mp3",
+    "title": "Think of Christmas",
+    "artist": "Anne Marie",
+    "album": "album02"
+  },
+  {
+    "id": 2,
+    "url": "https://raw.githubusercontent.com/HyunYuJin/yFactory/main/Christmas/assets/audio/ChristmasTheWholeYearRound.mp3",
+    "title": "Christmas the Whole Year Round",
+    "artist": "Sabrina Carpenter",
+    "album": "album03"
+  },
+  {
+    "id": 3,
+    "url": "https://raw.githubusercontent.com/HyunYuJin/yFactory/main/Christmas/assets/audio/AllIWantforChristmasIsYou.mp3",
+    "title": "All I Want for Christmas Is You",
+    "artist": "Mariah Carey",
+    "album": "album04"
+  },
+  {
+    "id": 4,
+    "url": "https://raw.githubusercontent.com/HyunYuJin/yFactory/main/Christmas/assets/audio/HappyChristmas.mp3",
+    "title": "Happy Christmas",
+    "artist": "박효신",
+    "album": "album05"
+  }
+]

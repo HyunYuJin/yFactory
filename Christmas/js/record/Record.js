@@ -1,19 +1,29 @@
 import '../../styles/record.scss'
-import { addStyle, addClass } from '../utils'
+import tracks from './tracks.json'
+import { addStyle, addClass, removeClass } from '../utils'
 
 class Record {
   constructor (element, options) {
     this.element = element
     this.options = options
     this.nodes = {}
+    this.audio = new Audio()
+    this.isToggle = false
+    this.currentTrack = 0
 
     this.init()
   }
 
   init () {
+    this.initAudio()
     this.initDOM()
     this.initStyles()
     this.initEvents()
+  }
+
+  initAudio () {
+    console.log(this.audio)
+    this.audio.src = tracks[this.currentTrack].url
   }
 
   initDOM () {
@@ -54,8 +64,20 @@ class Record {
   }
 
   onClick () {
-    addClass(this.nodes.record, 'on')
-    addClass(this.nodes.tone, 'play')
+    this.isToggle = !this.isToggle
+
+    if (this.isToggle) {
+      addClass(this.nodes.record, 'on')
+      addClass(this.nodes.tone, 'play')
+
+      setTimeout(() => this.audio.play(), 1000)
+      
+    } else {
+      removeClass(this.nodes.record, 'on')
+      removeClass(this.nodes.tone, 'play')
+
+      this.audio.pause()
+    }
   }
 }
 
