@@ -9,24 +9,26 @@ class Record {
     this.nodes = {}
     this.audio = new Audio()
     this.isToggle = false
-    this.currentTrack = 0
+    this.currentTrack = {}
+    this.currentIndex = 0
 
     this.init()
   }
 
   init () {
     this.initAudio()
-    this.initDOM()
+    this.initRecord()
+    this.initTracks()
     this.initStyles()
     this.initEvents()
   }
 
   initAudio () {
-    console.log(this.audio)
-    this.audio.src = tracks[this.currentTrack].url
+    this.currentTrack = tracks[this.currentIndex]
+    this.audio.src = this.currentTrack.url
   }
 
-  initDOM () {
+  initRecord () {
     this.element.insertAdjacentHTML('afterbegin', `
       <div class="player">
         <div class="record">
@@ -45,7 +47,17 @@ class Record {
     this.nodes.player = this.element.querySelector('.player')
     this.nodes.record = this.element.querySelector('.record')
     this.nodes.button = this.element.querySelector('.button')
+    this.nodes.slider = this.element.querySelector('.slider')
     this.nodes.tone = this.element.querySelector('.tone-arm')
+  }
+
+  initTracks () {
+    this.element.insertAdjacentHTML('beforeend', `
+      <div class="info">
+        <div class="title">${this.currentTrack.title}</div>
+        <div class="artist">${this.currentTrack.artist}</div>
+      </div>
+    `)
   }
 
   initStyles () {
@@ -60,7 +72,11 @@ class Record {
   }
 
   initEvents () {
+    this.audio.addEventListener('ended', this.onEnded.bind(this))
+    this.audio.addEventListener("volumechange", this.onVolumeChange.bind(this))
+    
     this.nodes.button.addEventListener('click', this.onClick.bind(this))
+    this.nodes.slider.addEventListener('input', this.onChange.bind(this))
   }
 
   onClick () {
@@ -78,6 +94,32 @@ class Record {
 
       this.audio.pause()
     }
+  }
+
+  onChange () {
+    this.audio.volume = this.nodes.slider.value
+  }
+
+  onEnded () {
+    if (this.currentIndex > tracks.length) {
+      this.currentIndex = 0
+    }
+
+    this.nextTrack()
+  }
+
+  onVolumeChange () {
+    if (this.audio.volume === 0) {
+      console.log("Mute")
+    } else {
+      console.log('Unmute')
+    }
+  }
+
+  nextTrack () {
+    this.currentIndex++
+    this.currentTrack = tracks[this.currentIndex]
+    this.audio.src = this.currentTrack.url
   }
 }
 
