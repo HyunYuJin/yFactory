@@ -10,7 +10,7 @@ class Record {
     this.audio = new Audio()
     this.isToggle = false
     this.currentTrack = {}
-    this.currentIndex = 0
+    this.currentIndex = 1
 
     this.init()
   }
@@ -101,6 +101,7 @@ class Record {
   }
 
   onEnded () {
+    console.log('123123')
     if (this.currentIndex > tracks.length) {
       this.currentIndex = 0
     }
@@ -120,6 +121,7 @@ class Record {
     this.currentIndex++
     this.currentTrack = tracks[this.currentIndex]
     this.audio.src = this.currentTrack.url
+    this.audio.autoplay = true
   }
 }
 
