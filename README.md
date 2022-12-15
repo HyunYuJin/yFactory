@@ -33,3 +33,12 @@ Calculator Dark Mode             |  Calculator Light Mode
 
 ## 도서 카드 리스트
 ![127 0 0 1_5500_CardList_ (1)](https://user-images.githubusercontent.com/38209966/192323157-1874c8d3-bb2c-4375-8d3e-09c6550cab0d.png)
+
+## 크리스마스 캐롤 레코드
+![chrome-capture-2022-11-11 (1)](https://user-images.githubusercontent.com/38209966/206909045-96013cb0-dc72-4f1c-9a88-41a98dcb4b44.gif)
+
+### 기본 기능
+* 레코드 재생 및 정지
+* 레코드 볼륨 조절
+* 크리스마스 D-day
+* 눈 내리는 효과
