@@ -1,10 +1,13 @@
 import './styles/style.scss'
 import { getDays } from './js/days/index'
+import { sparkle } from './js/sparkle/index'
 import Snow from './js/snow/Snow'
 import Record from './js/record/Record'
 
 const days = document.getElementById('days')
-getDays(days)
+const sentence = getDays(days)
+const text = sparkle(sentence)
+days.innerHTML = text
 
 const canvas = document.getElementById('snow')
 const snowOptions = {

@@ -1,0 +1,45 @@
+@import url(https://fonts.googleapis.com/css?family=Mountains+of+Christmas:700);
+
+h1 {
+	font-family: 'Mountains of Christmas', cursive;
+  // position: absolute;
+  // top: 15%;
+  font-size: 7vw;
+  max-height: 100px;
+  width:100%;
+  height:100%;
+  text-align:center;
+  z-index:-1;
+  line-height: 0;
+  color:#fff;
+}
+
+.christmas-blue {
+  color: blue;
+	background: -webkit-linear-gradient(transparent, transparent), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/191814/blue_glitter.gif) repeat;
+	background: -o-linear-gradient(transparent, transparent) !important;
+  -webkit-background-clip: text !important;
+	-webkit-text-fill-color: transparent !important;
+	margin: 0;
+	padding: 0;
+	font-weight: 900;
+	width: 100%;
+	text-align: center;
+	letter-spacing: 1px;
+	z-index: 999999;
+}
+
+.christmas-gold {
+  color: gold;
+	background: -webkit-linear-gradient(transparent, transparent), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/191814/gold_glitter.gif) repeat;
+	background: -o-linear-gradient(transparent, transparent) !important;
+	-webkit-background-clip: text !important;
+	-webkit-text-fill-color: transparent !important;
+	margin: 0;
+	padding: 0;
+	font-weight: 900;
+	width: 100%;
+	text-align: center;
+	letter-spacing: 1px;
+	z-index: 999999;
+}

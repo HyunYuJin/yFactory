@@ -4,17 +4,18 @@ const xmas = Date.parse('Dec 25, ' + year)
 const today = Date.parse(date)
 const toXmas = Math.round((xmas - today) / (1000 * 60 * 60 * 24))
 
-function getDays (element) {
+function getDays () {
   if (toXmas > 0) {
-    element.innerText = `${toXmas} days to Christmas!`
+    // element.innerText = `${toXmas} days to Christmas!`
+    return `${toXmas} days to Christmas!`
   }
   
   if (toXmas === 0) {
-    element.innerText = `It's Christmas! Merry Christmas!`
+    return `It's Christmas! Merry Christmas!`
   }
   
   if (toXmas < 0) {
-    element.innerText = `Christmas was ${-1 * toXmas} days ago.`
+    return `Christmas was ${-1 * toXmas} days ago.`
   }
 }
 
