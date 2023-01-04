@@ -1,0 +1,37 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #BFACE0;
+}
+
+.container {
+  max-width: 30em;
+  width: 100%;
+}
+
+.touch-area {
+  
+  height: 30em;
+  border-radius: 0.6em;
+  background-color: #EBC7E8;
+}
+
+.output {
+  padding: 0.8em 0;
+  border-radius: 0.3em;
+  margin-top: 1em;
+  font-size: 1.2em;
+  font-weight: 600;
+  text-align: center;
+  background-color: #645CAA;
+  color: #191919;
+}
