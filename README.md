@@ -42,3 +42,11 @@ Calculator Dark Mode             |  Calculator Light Mode
 * 레코드 볼륨 조절
 * 크리스마스 D-day
 * 눈 내리는 효과
+
+## 스와이프 방향 감지
+![127 0 0 1_5500_SwipeDirection_](https://user-images.githubusercontent.com/38209966/210809113-e1b499d3-5e69-43de-ae03-39d93e1e25bd.png)
+
+### 기본 기능
+* 디바이스 종류 감지 (데스크탑, 모바일)
+* 위/아래 방향 감지
+* 좌/우 
